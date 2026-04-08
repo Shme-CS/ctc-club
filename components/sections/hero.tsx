@@ -1,22 +1,24 @@
 import { ArrowRight, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Avatar } from '@/components/ui/avatar';
+import { Container } from '@/components/ui/container';
 import Image from 'next/image';
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white py-20 sm:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <Container>
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
           {/* Content */}
           <div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 mb-8">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-              </span>
+            <Badge variant="info" icon={<span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+            </span>} className="mb-8">
               Spring 2026 Registration Open
-            </div>
+            </Badge>
 
             {/* Heading */}
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
@@ -41,10 +43,12 @@ export function Hero() {
             {/* Social Proof */}
             <div className="mt-10 flex items-center gap-x-6">
               <div className="flex -space-x-2">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <div
+                {['SC', 'AR', 'JP', 'ML', 'DK'].map((initials, i) => (
+                  <Avatar
                     key={i}
-                    className="h-10 w-10 rounded-full bg-gray-200 ring-2 ring-white"
+                    fallback={initials}
+                    size="md"
+                    className="ring-2 ring-white"
                   />
                 ))}
               </div>
@@ -66,7 +70,7 @@ export function Hero() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

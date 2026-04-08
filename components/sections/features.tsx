@@ -1,4 +1,7 @@
 import { BookOpen, TrendingUp, Award, FolderGit2, HeadphonesIcon, Users } from 'lucide-react';
+import { SectionTitle } from '@/components/ui/section-title';
+import { IconWrapper } from '@/components/ui/icon-wrapper';
+import { Container } from '@/components/ui/container';
 
 const features = [
   {
@@ -36,17 +39,14 @@ const features = [
 export function Features() {
   return (
     <section className="bg-gray-50 py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <Container>
         {/* Section Header */}
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-base font-semibold leading-7 text-blue-600">Platform Features</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Everything You Need to Succeed
-          </p>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            A complete learning ecosystem designed specifically for university students and tech enthusiasts.
-          </p>
-        </div>
+        <SectionTitle
+          badge="Platform Features"
+          title="Everything You Need to Succeed"
+          description="A complete learning ecosystem designed specifically for university students and tech enthusiasts."
+          align="center"
+        />
 
         {/* Features Grid */}
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -56,9 +56,9 @@ export function Features() {
               return (
                 <div key={feature.name} className="flex flex-col">
                   <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                    <div className="rounded-lg bg-blue-600 p-2">
-                      <Icon className="h-5 w-5 text-white" aria-hidden="true" />
-                    </div>
+                    <IconWrapper variant="primary" size="md">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </IconWrapper>
                     {feature.name}
                   </dt>
                   <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
@@ -69,7 +69,7 @@ export function Features() {
             })}
           </dl>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

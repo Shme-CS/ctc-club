@@ -1,5 +1,8 @@
 import { Star, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Container } from '@/components/ui/container';
+import { SectionTitle } from '@/components/ui/section-title';
 import Image from 'next/image';
 
 const courses = [
@@ -44,25 +47,22 @@ const courses = [
 export function Courses() {
   return (
     <section className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <Container>
         {/* Section Header */}
-        <div className="flex items-end justify-between">
-          <div>
-            <h2 className="text-base font-semibold leading-7 text-blue-600">Top Courses</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Featured Courses
-            </p>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
-              Handpicked courses to accelerate your learning journey.
-            </p>
-          </div>
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-16">
+          <SectionTitle
+            badge="Top Courses"
+            title="Featured Courses"
+            description="Handpicked courses to accelerate your learning journey."
+            align="left"
+          />
           <Button variant="outline" href="/courses" rightIcon={<ArrowRight className="h-4 w-4" />}>
             View All
           </Button>
         </div>
 
         {/* Courses Grid */}
-        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {courses.map((course) => (
             <div
               key={course.id}
@@ -77,9 +77,9 @@ export function Courses() {
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute left-4 top-4">
-                  <span className="inline-flex items-center rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-gray-900 backdrop-blur">
+                  <Badge variant="default" className="bg-white/90 text-gray-900 backdrop-blur">
                     {course.category}
-                  </span>
+                  </Badge>
                 </div>
               </div>
 
@@ -109,7 +109,7 @@ export function Courses() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
