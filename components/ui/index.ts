@@ -30,3 +30,17 @@ export type { ContainerProps } from './container';
 
 export { SectionTitle } from './section-title';
 export type { SectionTitleProps } from './section-title';
+export { FeatureCard } from './feature-card';
+export type { FeatureCardProps } from './feature-card';
+
+export { ServiceCard } from './service-card';
+export type { ServiceCardProps } from './service-card';
+
+export { PricingCard } from './pricing-card';
+export type { PricingCardProps } from './pricing-card';
+
+export { TestimonialCard } from './testimonial-card';
+export type { TestimonialCardProps } from './testimonial-card';
+
+export { BlogCard } from './blog-card';
+export type { BlogCardProps } from './blog-card';
