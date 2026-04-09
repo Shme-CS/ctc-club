@@ -8,11 +8,11 @@ function LightningIcon() {
 
 export function NotificationBanner() {
   return (
-    <div className="bg-purple-100/60 border-b border-purple-200/40">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-3">
+    <div className="bg-purple-100 border-b border-purple-200">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-2.5">
         <div className="flex items-center gap-2">
           <LightningIcon />
-          <span className="text-sm font-medium text-indigo-900">
+          <span className="text-sm font-semibold text-indigo-900">
             Spring 2026 Registration Open
           </span>
         </div>

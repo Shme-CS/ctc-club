@@ -42,7 +42,7 @@ function FloatingBadges() {
 
 export function HeroImage() {
   return (
-    <div className="relative lg:ml-8">
+    <div className="relative">
       <LaptopImage />
       <FloatingBadges />
     </div>
