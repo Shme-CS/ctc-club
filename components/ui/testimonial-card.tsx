@@ -112,7 +112,7 @@ export function TestimonialCard({
         <Avatar
           src={avatar}
           alt={author}
-          fallback={author.split(' ').map(n => n[0]).join('')}
+          fallback={author?.split(' ').map(n => n[0]).join('') || 'U'}
           size="lg"
         />
         <div className="flex-1">
