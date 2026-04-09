@@ -70,3 +70,13 @@ export type { SiteFooterProps, FooterSection, FooterLink, SocialLink } from './s
 
 export { GridLayout, GridItem } from './grid-layout';
 export type { GridLayoutProps, GridItemProps, GridColumns } from './grid-layout';
+
+// New Homepage Components
+export { Logo } from './logo';
+export { NavLinks } from './nav-links';
+export { CTAButtons, LoginLink, GetStartedButton } from './cta-buttons';
+export { PrimaryButton } from './primary-button';
+export { SecondaryButton } from './secondary-button';
+export { SearchInput } from './search-input';
+export { AvatarGroup } from './avatar-group';
+export { FloatingBadge, CertificateBadge, CompletionBadge } from './floating-badge';
