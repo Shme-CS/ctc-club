@@ -9,9 +9,15 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-purple-50/30 via-white to-white">
-      <NotificationBanner />
-      <HeroSection />
+    <main className="min-h-screen bg-white relative overflow-hidden">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-40" />
+      
+      {/* Content */}
+      <div className="relative z-10">
+        <NotificationBanner />
+        <HeroSection />
+      </div>
     </main>
   );
 }

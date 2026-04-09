@@ -5,16 +5,16 @@ import { AvatarGroup } from '@/components/ui/avatar-group';
 
 function Headline() {
   return (
-    <div className="space-y-0">
-      <h1 className="text-[3.75rem] sm:text-[4.25rem] lg:text-[4.5rem] xl:text-[4.75rem] font-black text-gray-900 leading-[0.95] tracking-tighter">
+    <div className="space-y-0 -mt-2">
+      <h1 className="font-playfair text-[3.5rem] sm:text-[4rem] lg:text-[4.5rem] font-black text-gray-900 leading-[0.9] tracking-[-0.02em]">
         Learn Tech Skills.
       </h1>
-      <h1 className="text-[3.75rem] sm:text-[4.25rem] lg:text-[4.5rem] xl:text-[4.75rem] font-black leading-[0.95] tracking-tighter">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-purple-700">
+      <h1 className="font-playfair text-[3.5rem] sm:text-[4rem] lg:text-[4.5rem] font-black leading-[0.9] tracking-[-0.02em]">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-purple-500 to-purple-600">
           Build Real Projects.
         </span>
       </h1>
-      <h1 className="text-[3.75rem] sm:text-[4.25rem] lg:text-[4.5rem] xl:text-[4.75rem] font-black text-gray-900 leading-[0.95] tracking-tighter">
+      <h1 className="font-playfair text-[3.5rem] sm:text-[4rem] lg:text-[4.5rem] font-black text-gray-900 leading-[0.9] tracking-[-0.02em]">
         Grow Your Career.
       </h1>
     </div>
