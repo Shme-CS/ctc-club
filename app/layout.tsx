@@ -20,14 +20,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.variable}>
         {/* Navigation Bar */}
-        <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200/80">
+        <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200/80">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               {/* Logo */}
               <Link href="/" className="flex items-center gap-2.5">
                 <img 
                   src="/ctc-logo.svg" 
-                  alt="CTC Club Logo" 
+                  alt="CTC Club" 
                   className="w-9 h-9"
                 />
                 <span className="text-xl font-bold text-gray-900">CTC Club</span>
@@ -35,19 +35,19 @@ export default function RootLayout({
 
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center gap-8">
-                <Link href="/" className="text-[0.95rem] text-gray-700 hover:text-gray-900 font-medium transition-colors">
+                <Link href="/" className="text-[0.9375rem] text-gray-700 hover:text-gray-900 font-medium transition-colors">
                   Home
                 </Link>
-                <Link href="/courses" className="text-[0.95rem] text-gray-700 hover:text-gray-900 font-medium transition-colors">
+                <Link href="/courses" className="text-[0.9375rem] text-gray-700 hover:text-gray-900 font-medium transition-colors">
                   Courses
                 </Link>
-                <Link href="/services" className="text-[0.95rem] text-gray-700 hover:text-gray-900 font-medium transition-colors">
+                <Link href="/services" className="text-[0.9375rem] text-gray-700 hover:text-gray-900 font-medium transition-colors">
                   Resources
                 </Link>
-                <Link href="/about" className="text-[0.95rem] text-gray-700 hover:text-gray-900 font-medium transition-colors">
+                <Link href="/about" className="text-[0.9375rem] text-gray-700 hover:text-gray-900 font-medium transition-colors">
                   Community
                 </Link>
-                <Link href="/about" className="text-[0.95rem] text-gray-700 hover:text-gray-900 font-medium transition-colors">
+                <Link href="/about" className="text-[0.9375rem] text-gray-700 hover:text-gray-900 font-medium transition-colors">
                   About
                 </Link>
               </div>
@@ -56,13 +56,13 @@ export default function RootLayout({
               <div className="hidden md:flex items-center gap-4">
                 <Link
                   href="/login"
-                  className="text-[0.95rem] px-4 py-2 text-gray-700 hover:text-gray-900 font-medium transition-colors"
+                  className="text-[0.9375rem] px-4 py-2 text-gray-700 hover:text-gray-900 font-medium transition-colors"
                 >
                   Log in
                 </Link>
                 <Link
                   href="/signup"
-                  className="text-[0.95rem] px-6 py-2.5 text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-purple-700 font-semibold transition-all shadow-md hover:shadow-lg"
+                  className="text-[0.9375rem] px-6 py-2.5 text-white bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl hover:from-indigo-700 hover:to-purple-700 font-semibold transition-all duration-200 shadow-md shadow-indigo-500/20 hover:shadow-lg hover:shadow-indigo-500/30"
                 >
                   Get Started Free
                 </Link>
@@ -70,8 +70,8 @@ export default function RootLayout({
 
               {/* Mobile Menu Button */}
               <button className="md:hidden p-2 text-gray-700 hover:text-gray-900 rounded-lg hover:bg-gray-100 transition-colors">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               </button>
             </div>
