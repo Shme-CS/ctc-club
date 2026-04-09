@@ -1,186 +1,162 @@
-'use client';
+import type { Metadata } from 'next';
+import { HeroSection } from '@/components/sections/hero-section';
+import { ContactSection } from '@/components/sections/contact-section';
+import { FAQSection } from '@/components/sections/faq-section';
+import { Facebook, Twitter, Linkedin, Instagram, Github } from 'lucide-react';
 
-import { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { Navbar } from '@/components/layout/navbar';
-import { Footer } from '@/components/layout/footer';
-import { Container } from '@/components/ui/container';
-import { SectionTitle } from '@/components/ui/section-title';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
-import { IconWrapper } from '@/components/ui/icon-wrapper';
-
-const contactInfo = [
-  {
-    icon: Mail,
-    title: 'Email',
-    value: 'support@ctcclub.com',
-    link: 'mailto:support@ctcclub.com',
+export const metadata: Metadata = {
+  title: 'Contact Us - CTC Club | Get in Touch',
+  description: 'Have questions? Get in touch with CTC Club. We\'re here to help you with courses, support, and any inquiries.',
+  openGraph: {
+    title: 'Contact CTC Club - We\'re Here to Help',
+    description: 'Reach out to our team for support, questions, or partnership opportunities.',
+    images: ['/og-contact.jpg'],
   },
-  {
-    icon: Phone,
-    title: 'Phone',
-    value: '+1 (555) 123-4567',
-    link: 'tel:+15551234567',
-  },
-  {
-    icon: MapPin,
-    title: 'Office',
-    value: '123 Tech Street, San Francisco, CA 94105',
-    link: 'https://maps.google.com',
-  },
-];
+};
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We will get back to you soon.');
-    
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setIsSubmitting(false);
+  const heroData = {
+    badge: 'We\'re Here to Help',
+    title: 'Get in Touch',
+    subtitle: 'Have questions about our courses or services? Our team is ready to help you succeed.',
+    primaryCTA: {
+      text: 'Send Message',
+      href: '#contact-form',
+    },
+    secondaryCTA: {
+      text: 'View FAQ',
+      href: '#faq',
+    },
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+  const contactData = {
+    title: 'Send Us a Message',
+    subtitle: 'We\'ll get back to you soon',
+    description: 'Fill out the form below and our team will respond within 24 hours.',
+    contactInfo: {
+      email: 'support@ctcclub.com',
+      phone: '+1 (555) 123-4567',
+      address: '123 Tech Street, San Francisco, CA 94105',
+      hours: 'Monday - Friday: 9:00 AM - 6:00 PM PST',
+    },
+    socialLinks: [
+      {
+        platform: 'Facebook',
+        url: 'https://facebook.com/ctcclub',
+        icon: <Facebook className="w-5 h-5" />,
+      },
+      {
+        platform: 'Twitter',
+        url: 'https://twitter.com/ctcclub',
+        icon: <Twitter className="w-5 h-5" />,
+      },
+      {
+        platform: 'LinkedIn',
+        url: 'https://linkedin.com/company/ctcclub',
+        icon: <Linkedin className="w-5 h-5" />,
+      },
+      {
+        platform: 'Instagram',
+        url: 'https://instagram.com/ctcclub',
+        icon: <Instagram className="w-5 h-5" />,
+      },
+      {
+        platform: 'GitHub',
+        url: 'https://github.com/ctcclub',
+        icon: <Github className="w-5 h-5" />,
+      },
+    ],
+  };
+
+  const faqData = {
+    title: 'Common Questions',
+    subtitle: 'Quick answers',
+    description: 'Find answers to frequently asked questions before reaching out.',
+    faqs: [
+      {
+        question: 'How quickly will I receive a response?',
+        answer: 'We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly.',
+      },
+      {
+        question: 'What information should I include in my message?',
+        answer: 'Please include your name, email, and a detailed description of your question or issue. The more information you provide, the better we can assist you.',
+      },
+      {
+        question: 'Do you offer phone support?',
+        answer: 'Yes! Pro and Enterprise members have access to phone support. Free plan users can reach us via email or the contact form.',
+      },
+      {
+        question: 'Can I schedule a demo or consultation?',
+        answer: 'Absolutely! Enterprise customers can schedule a personalized demo. Use the contact form and select "Schedule Demo" as your subject.',
+      },
+      {
+        question: 'How do I report a technical issue?',
+        answer: 'For technical issues, please use the contact form and select "Technical Support" as your subject. Include details about the problem and any error messages.',
+      },
+      {
+        question: 'Are you hiring?',
+        answer: 'We\'re always looking for talented instructors and team members! Check our careers page or send your resume to careers@ctcclub.com.',
+      },
+    ],
   };
 
   return (
-    <main className="min-h-screen">
-      <Navbar />
-      
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-blue-50 to-white py-20">
-        <Container>
-          <SectionTitle
-            badge="Contact Us"
-            title="Get in Touch"
-            description="Have a question or need help? We're here to assist you. Send us a message and we'll respond as soon as possible."
-            align="center"
-          />
-        </Container>
-      </section>
+    <main>
+      <HeroSection
+        variant="centered"
+        badge={heroData.badge}
+        title={heroData.title}
+        subtitle={heroData.subtitle}
+        primaryCTA={heroData.primaryCTA}
+        secondaryCTA={heroData.secondaryCTA}
+      />
 
-      {/* Contact Section */}
-      <section className="py-24">
-        <Container>
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
-            {/* Contact Info */}
-            <div className="lg:col-span-1">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Contact Information
-              </h3>
-              <p className="text-gray-600 mb-8">
-                Reach out to us through any of these channels. We're available 24/7 to help you.
-              </p>
+      <ContactSection
+        variant="split"
+        title={contactData.title}
+        subtitle={contactData.subtitle}
+        description={contactData.description}
+        contactInfo={contactData.contactInfo}
+        socialLinks={contactData.socialLinks}
+        id="contact-form"
+      />
 
-              <div className="space-y-6">
-                {contactInfo.map((info) => {
-                  const Icon = info.icon;
-                  return (
-                    <a
-                      key={info.title}
-                      href={info.link}
-                      className="flex items-start gap-4 group"
-                    >
-                      <IconWrapper variant="secondary" size="md">
-                        <Icon className="h-5 w-5" />
-                      </IconWrapper>
-                      <div>
-                        <p className="font-semibold text-gray-900 mb-1">{info.title}</p>
-                        <p className="text-gray-600 group-hover:text-blue-600 transition-colors">
-                          {info.value}
-                        </p>
-                      </div>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
+      <FAQSection
+        variant="two-column"
+        title={faqData.title}
+        subtitle={faqData.subtitle}
+        description={faqData.description}
+        faqs={faqData.faqs}
+        id="faq"
+      />
 
-            {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <div className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-200">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Send us a Message
-                </h3>
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                    <Input
-                      label="Full Name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="John Doe"
-                      required
-                    />
-                    <Input
-                      label="Email Address"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="john@example.com"
-                      required
-                    />
-                  </div>
-
-                  <Input
-                    label="Subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder="How can we help you?"
-                    required
-                  />
-
-                  <Textarea
-                    label="Message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell us more about your inquiry..."
-                    rows={6}
-                    maxLength={1000}
-                    showCount
-                    required
-                  />
-
-                  <Button
-                    type="submit"
-                    size="lg"
-                    fullWidth
-                    loading={isSubmitting}
-                    rightIcon={<Send className="h-5 w-5" />}
-                  >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </Button>
-                </form>
-              </div>
+      {/* Additional Support Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-br from-blue-600 to-blue-700">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Need Immediate Help?
+            </h2>
+            <p className="text-xl text-blue-100 mb-8">
+              Check out our help center for instant answers to common questions.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/help"
+                className="inline-flex items-center justify-center px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-colors"
+              >
+                Visit Help Center
+              </a>
+              <a
+                href="/community"
+                className="inline-flex items-center justify-center px-8 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-400 transition-colors"
+              >
+                Join Community
+              </a>
             </div>
           </div>
-        </Container>
+        </div>
       </section>
-
-      <Footer />
     </main>
   );
 }
