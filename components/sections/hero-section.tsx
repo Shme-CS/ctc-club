@@ -1,6 +1,10 @@
 import { HeroContent } from './hero-content';
 import { HeroImage } from './hero-image';
 
+/**
+ * Main hero section component
+ * Contains hero content (left) and hero image (right) in a two-column layout
+ */
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden">
