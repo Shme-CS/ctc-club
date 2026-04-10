@@ -1,8 +1,14 @@
+/**
+ * Avatar data structure
+ */
 interface Avatar {
   letter: string;
   gradient: string;
 }
 
+/**
+ * Avatar data with gradient colors
+ */
 const avatars: Avatar[] = [
   { letter: 'A', gradient: 'from-blue-400 to-blue-500' },
   { letter: 'B', gradient: 'from-purple-400 to-purple-500' },
