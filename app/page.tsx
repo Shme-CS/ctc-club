@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { NotificationBanner } from '@/components/sections/notification-banner';
 import { HeroSection } from '@/components/sections/hero-section';
 
+// Page metadata for SEO
 export const metadata: Metadata = {
   title: 'CTC Club - Learn Tech Skills & Build Your Career',
   description: 'The ultimate learning platform for university students. Access structured courses, earn certificates, build portfolio projects, and join a thriving tech community.',
