@@ -24,7 +24,8 @@ function Headline() {
 function Subtitle() {
   return (
     <p className="text-[0.95rem] text-gray-600 leading-relaxed max-w-lg">
-      The ultimate learning platform for university students. Access structured courses, earn certificates, build portfolio projects, and join a thriving tech community.
+      The ultimate learning platform for university students. Access structured courses, 
+      earn certificates, build portfolio projects, and join a thriving tech community.
     </p>
   );
 }
