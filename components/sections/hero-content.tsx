@@ -8,16 +8,16 @@ import { AvatarGroup } from '@/components/ui/avatar-group';
  */
 function Headline() {
   return (
-    <div className="-space-y-4">
-      <h1 className="text-[2.75rem] sm:text-[3rem] lg:text-[3.25rem] xl:text-[3.5rem] font-extrabold text-black leading-[0.8] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
+    <div className="-space-y-5">
+      <h1 className="text-[2.5rem] sm:text-[2.75rem] lg:text-[3rem] xl:text-[3.25rem] font-extrabold text-black leading-[0.75] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
         Learn Tech Skills.
       </h1>
-      <h1 className="text-[2.75rem] sm:text-[3rem] lg:text-[3.25rem] xl:text-[3.5rem] font-extrabold leading-[0.8] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
+      <h1 className="text-[2.5rem] sm:text-[2.75rem] lg:text-[3rem] xl:text-[3.25rem] font-extrabold leading-[0.75] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-purple-700">
           Build Real Projects.
         </span>
       </h1>
-      <h1 className="text-[2.75rem] sm:text-[3rem] lg:text-[3.25rem] xl:text-[3.5rem] font-extrabold text-black leading-[0.8] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
+      <h1 className="text-[2.5rem] sm:text-[2.75rem] lg:text-[3rem] xl:text-[3.25rem] font-extrabold text-black leading-[0.75] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
         Grow Your Career.
       </h1>
     </div>
@@ -26,7 +26,7 @@ function Headline() {
 
 function Subtitle() {
   return (
-    <p className="text-[0.875rem] text-gray-600 leading-relaxed max-w-md">
+    <p className="text-[0.8125rem] text-gray-600 leading-relaxed max-w-sm">
       The ultimate learning platform for university students. Access structured courses, 
       earn certificates, build portfolio projects, and join a thriving tech community.
     </p>
@@ -51,7 +51,7 @@ function CTAGroup() {
 
 export function HeroContent() {
   return (
-    <div className="space-y-4">
+    <div className="space-y-3.5">
       <Headline />
       <Subtitle />
       <CTAGroup />
