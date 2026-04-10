@@ -1,5 +1,9 @@
 import Link from 'next/link';
 
+/**
+ * CTC Club logo component with brand name
+ * Displays logo image and text, links to homepage
+ */
 export function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2.5">
