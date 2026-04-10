@@ -3,6 +3,9 @@ import { SecondaryButton } from '@/components/ui/secondary-button';
 import { SearchInput } from '@/components/ui/search-input';
 import { AvatarGroup } from '@/components/ui/avatar-group';
 
+/**
+ * Hero headline with three lines and gradient text
+ */
 function Headline() {
   return (
     <div className="-space-y-2">
