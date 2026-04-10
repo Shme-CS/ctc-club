@@ -1,5 +1,8 @@
 import { CertificateBadge, CompletionBadge } from '@/components/ui/floating-badge';
 
+/**
+ * Laptop mockup with grid background and colored squares
+ */
 function LaptopImage() {
   return (
     <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-900/20">
