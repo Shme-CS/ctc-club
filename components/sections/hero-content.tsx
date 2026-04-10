@@ -8,16 +8,16 @@ import { AvatarGroup } from '@/components/ui/avatar-group';
  */
 function Headline() {
   return (
-    <div className="-space-y-3">
-      <h1 className="text-[3.5rem] sm:text-[4rem] lg:text-[4.25rem] xl:text-[4.5rem] font-bold text-gray-900 leading-[0.85] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
+    <div className="-space-y-4">
+      <h1 className="text-[2.75rem] sm:text-[3rem] lg:text-[3.25rem] xl:text-[3.5rem] font-extrabold text-black leading-[0.8] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
         Learn Tech Skills.
       </h1>
-      <h1 className="text-[3.5rem] sm:text-[4rem] lg:text-[4.25rem] xl:text-[4.5rem] font-bold leading-[0.85] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
+      <h1 className="text-[2.75rem] sm:text-[3rem] lg:text-[3.25rem] xl:text-[3.5rem] font-extrabold leading-[0.8] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-purple-700">
           Build Real Projects.
         </span>
       </h1>
-      <h1 className="text-[3.5rem] sm:text-[4rem] lg:text-[4.25rem] xl:text-[4.5rem] font-bold text-gray-900 leading-[0.85] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
+      <h1 className="text-[2.75rem] sm:text-[3rem] lg:text-[3.25rem] xl:text-[3.5rem] font-extrabold text-black leading-[0.8] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
         Grow Your Career.
       </h1>
     </div>
@@ -26,7 +26,7 @@ function Headline() {
 
 function Subtitle() {
   return (
-    <p className="text-[0.9375rem] text-gray-600 leading-relaxed max-w-md">
+    <p className="text-[0.875rem] text-gray-600 leading-relaxed max-w-md">
       The ultimate learning platform for university students. Access structured courses, 
       earn certificates, build portfolio projects, and join a thriving tech community.
     </p>
@@ -35,7 +35,7 @@ function Subtitle() {
 
 function CTAGroup() {
   return (
-    <div className="flex flex-wrap gap-4">
+    <div className="flex flex-wrap gap-3">
       <PrimaryButton href="/signup">
         Start Learning Free
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
@@ -51,7 +51,7 @@ function CTAGroup() {
 
 export function HeroContent() {
   return (
-    <div className="space-y-5">
+    <div className="space-y-4">
       <Headline />
       <Subtitle />
       <CTAGroup />
