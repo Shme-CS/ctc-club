@@ -4,6 +4,7 @@ export function SearchInput() {
       <input
         type="text"
         placeholder="Search courses, topics..."
+        aria-label="Search courses and topics"
         className="w-full pl-5 pr-12 py-3.5 text-[0.9375rem] text-gray-700 placeholder-gray-400 bg-gray-50/80 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent focus:bg-white transition-all duration-200"
       />
       <svg
@@ -12,6 +13,7 @@ export function SearchInput() {
         stroke="currentColor"
         viewBox="0 0 24 24"
         strokeWidth={2}
+        aria-hidden="true"
       >
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
       </svg>
