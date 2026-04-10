@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base layer - CSS variables and global styles */
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -18,11 +19,13 @@
   }
 }
 
+/* Utility layer - Custom animations and utilities */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
   
+  /* Floating animation for badges */
   @keyframes float {
     0%, 100% {
       transform: translateY(0px);
