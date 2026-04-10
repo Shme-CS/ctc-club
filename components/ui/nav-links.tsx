@@ -1,10 +1,16 @@
 import Link from 'next/link';
 
+/**
+ * Navigation link structure
+ */
 interface NavLink {
   label: string;
   href: string;
 }
 
+/**
+ * Main navigation links configuration
+ */
 const navLinks: NavLink[] = [
   { label: 'Home', href: '/' },
   { label: 'Courses', href: '/courses' },
