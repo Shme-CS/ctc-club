@@ -3,9 +3,11 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/sections/navbar";
 
+// Font configurations
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-playfair', weight: ['400', '700', '900'] });
 
+// SEO metadata
 export const metadata: Metadata = {
   title: "CTC Club - Learn Tech Skills, Build Real Projects",
   description: "The ultimate learning platform for university students. Access structured courses, earn certificates, build portfolio projects, and join a thriving tech community.",
