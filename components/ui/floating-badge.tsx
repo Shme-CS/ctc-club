@@ -1,3 +1,7 @@
+/**
+ * Floating badge component with icon, title, and subtitle
+ * Used for decorative UI elements that float around the hero image
+ */
 interface FloatingBadgeProps {
   icon: React.ReactNode;
   title: string;
