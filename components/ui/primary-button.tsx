@@ -1,3 +1,10 @@
+/**
+ * Primary CTA button with gradient background
+ * @param children - Button content
+ * @param href - Optional link URL
+ * @param onClick - Optional click handler
+ * @param className - Additional CSS classes
+ */
 interface PrimaryButtonProps {
   children: React.ReactNode;
   href?: string;
