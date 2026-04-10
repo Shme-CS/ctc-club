@@ -1,3 +1,7 @@
+/**
+ * Search input component with icon
+ * Allows users to search for courses and topics
+ */
 export function SearchInput() {
   return (
     <div className="relative max-w-md">
