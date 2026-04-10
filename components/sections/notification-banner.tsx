@@ -1,3 +1,7 @@
+/**
+ * Notification banner component
+ * Displays important announcements in a pill-shaped badge
+ */
 export function NotificationBanner() {
   return (
     <div className="bg-white" role="banner" aria-label="Notification">
