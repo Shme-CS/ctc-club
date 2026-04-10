@@ -1,5 +1,8 @@
 import Link from 'next/link';
 
+/**
+ * Login link component for navbar
+ */
 export function LoginLink() {
   return (
     <Link
