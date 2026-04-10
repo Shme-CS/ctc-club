@@ -8,16 +8,16 @@ import { AvatarGroup } from '@/components/ui/avatar-group';
  */
 function Headline() {
   return (
-    <div className="-space-y-2">
-      <h1 className="text-[4rem] sm:text-[4.5rem] lg:text-[5rem] xl:text-[5.5rem] font-bold text-gray-900 leading-[0.9] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
+    <div className="-space-y-3">
+      <h1 className="text-[3.5rem] sm:text-[4rem] lg:text-[4.25rem] xl:text-[4.5rem] font-bold text-gray-900 leading-[0.85] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
         Learn Tech Skills.
       </h1>
-      <h1 className="text-[4rem] sm:text-[4.5rem] lg:text-[5rem] xl:text-[5.5rem] font-bold leading-[0.9] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
+      <h1 className="text-[3.5rem] sm:text-[4rem] lg:text-[4.25rem] xl:text-[4.5rem] font-bold leading-[0.85] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-purple-700">
           Build Real Projects.
         </span>
       </h1>
-      <h1 className="text-[4rem] sm:text-[4.5rem] lg:text-[5rem] xl:text-[5.5rem] font-bold text-gray-900 leading-[0.9] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
+      <h1 className="text-[3.5rem] sm:text-[4rem] lg:text-[4.25rem] xl:text-[4.5rem] font-bold text-gray-900 leading-[0.85] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
         Grow Your Career.
       </h1>
     </div>
@@ -26,7 +26,7 @@ function Headline() {
 
 function Subtitle() {
   return (
-    <p className="text-[0.95rem] text-gray-600 leading-relaxed max-w-lg">
+    <p className="text-[0.9375rem] text-gray-600 leading-relaxed max-w-md">
       The ultimate learning platform for university students. Access structured courses, 
       earn certificates, build portfolio projects, and join a thriving tech community.
     </p>
@@ -51,7 +51,7 @@ function CTAGroup() {
 
 export function HeroContent() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <Headline />
       <Subtitle />
       <CTAGroup />
