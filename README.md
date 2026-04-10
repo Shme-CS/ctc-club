@@ -1,6 +1,6 @@
 # CTC Club - Tech Learning Platform
 
-A modern, production-ready learning platform built with Next.js 14, React, TypeScript, and Tailwind CSS.
+A modern, pixel-perfect learning platform built with Next.js 14, React, TypeScript, and Tailwind CSS. Designed for university students to learn tech skills, build real projects, and grow their careers.
 
 ## 🚀 Features
 
