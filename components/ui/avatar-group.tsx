@@ -18,7 +18,7 @@ const avatars: Avatar[] = [
 
 function AvatarCircle({ letter, gradient }: Avatar) {
   return (
-    <div className={`w-11 h-11 rounded-full bg-gradient-to-br ${gradient} border-[3px] border-white flex items-center justify-center text-white font-bold text-sm shadow-sm`}>
+    <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${gradient} border-[3px] border-white flex items-center justify-center text-white font-bold text-base shadow-md`}>
       {letter}
     </div>
   );
@@ -26,7 +26,7 @@ function AvatarCircle({ letter, gradient }: Avatar) {
 
 function CountText() {
   return (
-    <p className="text-[0.9375rem] text-gray-600">
+    <p className="text-base text-gray-600">
       <span className="font-bold text-gray-900">5,000+</span> students already learning
     </p>
   );
@@ -34,7 +34,7 @@ function CountText() {
 
 export function AvatarGroup() {
   return (
-    <div className="flex items-center gap-3 pt-2">
+    <div className="flex items-center gap-4 pt-2">
       <div className="flex -space-x-3">
         {avatars.map((avatar) => (
           <AvatarCircle key={avatar.letter} {...avatar} />

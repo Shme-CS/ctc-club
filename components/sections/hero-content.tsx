@@ -8,16 +8,16 @@ import { AvatarGroup } from '@/components/ui/avatar-group';
  */
 function Headline() {
   return (
-    <div className="-space-y-5">
-      <h1 className="text-[2.5rem] sm:text-[2.75rem] lg:text-[3rem] xl:text-[3.25rem] font-extrabold text-black leading-[0.75] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
+    <div className="space-y-2">
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 leading-tight tracking-tight">
         Learn Tech Skills.
       </h1>
-      <h1 className="text-[2.5rem] sm:text-[2.75rem] lg:text-[3rem] xl:text-[3.25rem] font-extrabold leading-[0.75] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight tracking-tight">
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-purple-700">
           Build Real Projects.
         </span>
       </h1>
-      <h1 className="text-[2.5rem] sm:text-[2.75rem] lg:text-[3rem] xl:text-[3.25rem] font-extrabold text-black leading-[0.75] tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 leading-tight tracking-tight">
         Grow Your Career.
       </h1>
     </div>
@@ -26,7 +26,7 @@ function Headline() {
 
 function Subtitle() {
   return (
-    <p className="text-[0.8125rem] text-gray-600 leading-relaxed max-w-sm">
+    <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-xl">
       The ultimate learning platform for university students. Access structured courses, 
       earn certificates, build portfolio projects, and join a thriving tech community.
     </p>
@@ -35,10 +35,10 @@ function Subtitle() {
 
 function CTAGroup() {
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className="flex flex-wrap gap-4">
       <PrimaryButton href="/signup">
         Start Learning Free
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </PrimaryButton>
@@ -51,7 +51,7 @@ function CTAGroup() {
 
 export function HeroContent() {
   return (
-    <div className="space-y-3.5">
+    <div className="space-y-6">
       <Headline />
       <Subtitle />
       <CTAGroup />

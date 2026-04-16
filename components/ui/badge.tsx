@@ -16,6 +16,7 @@ const badgeVariants = cva(
       variant: {
         default: 'bg-gray-100 text-gray-800 hover:bg-gray-200',
         primary: 'bg-blue-100 text-blue-800 hover:bg-blue-200',
+        info: 'bg-purple-100 text-indigo-900 hover:bg-purple-200 border border-purple-200',
         success: 'bg-green-100 text-green-800 hover:bg-green-200',
         warning: 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200',
         danger: 'bg-red-100 text-red-800 hover:bg-red-200',
@@ -51,6 +52,7 @@ export interface BadgeProps
     VariantProps<typeof badgeVariants> {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
+  icon?: React.ReactNode;
   removable?: boolean;
   onRemove?: () => void;
   className?: string;
@@ -66,20 +68,23 @@ export function Badge({
   rounded,
   leftIcon,
   rightIcon,
+  icon,
   removable,
   onRemove,
   className,
   children,
   ...props
 }: BadgeProps) {
+  const displayLeftIcon = icon || leftIcon;
+  
   return (
     <span
       className={cn(badgeVariants({ variant, size, rounded }), className)}
       {...props}
     >
-      {leftIcon && (
+      {displayLeftIcon && (
         <span className="inline-flex shrink-0" aria-hidden="true">
-          {leftIcon}
+          {displayLeftIcon}
         </span>
       )}
       
