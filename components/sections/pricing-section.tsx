@@ -1,260 +1,183 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Check } from 'lucide-react';
 import { Container } from '@/components/ui/container';
-import { SectionTitle } from '@/components/ui/section-title';
-import { PricingCard, PricingFeature } from '@/components/ui/pricing-card';
-import { GridLayout } from '@/components/ui/grid-layout';
 import { Button } from '@/components/ui/button';
 
-/**
- * PricingSection Component
- * 
- * A professional, interactive pricing section for displaying subscription tiers,
- * product packages, or service plans with feature comparison and CTAs.
- * 
- * @example
- * <PricingSection
- *   badge="Pricing"
- *   title="Choose Your Plan"
- *   description="Select the perfect plan for your learning journey"
- *   billingToggle
- *   plans={[
- *     {
- *       name: 'Free',
- *       price: { monthly: 0, yearly: 0 },
- *       description: 'Perfect for getting started',
- *       features: [
- *         { name: '10 courses', included: true },
- *         { name: 'Community support', included: true }
- *       ],
- *       ctaText: 'Get Started',
- *       ctaHref: '/signup'
- *     }
- *   ]}
- * />
- */
+const pricingPlans = [
+  {
+    id: 1,
+    name: 'Student',
+    description: 'Perfect for individual learning.',
+    price: '$0',
+    period: '/ forever',
+    features: [
+      'All basic courses',
+      'Community access',
+      'GitHub project submissions',
+      'Support tickets',
+      'Certificates',
+    ],
+    buttonText: 'Get Started Free',
+    buttonVariant: 'outline' as const,
+    popular: false,
+    delay: 0,
+  },
+  {
+    id: 2,
+    name: 'University Partner',
+    description: 'For institutions and large clubs.',
+    price: 'Custom',
+    period: '',
+    features: [
+      'Unlimited student accounts',
+      'Custom course creation',
+      'Advanced analytics',
+      'Priority 24/7 support',
+      'Custom branding',
+      'Admin dashboard',
+    ],
+    buttonText: 'Contact Sales',
+    buttonVariant: 'default' as const,
+    popular: true,
+    delay: 150,
+  },
+];
 
-export interface PricingPlan {
-  /** Plan name */
-  name: string;
-  
-  /** Plan description */
-  description?: string;
-  
-  /** Pricing (can be number, string, or object with monthly/yearly) */
-  price: number | string | {
-    monthly: number | string;
-    yearly: number | string;
-  };
-  
-  /** Currency symbol */
-  currency?: string;
-  
-  /** List of features with inclusion status */
-  features: PricingFeature[];
-  
-  /** CTA button text */
-  ctaText?: string;
-  
-  /** CTA button link */
-  ctaHref?: string;
-  
-  /** CTA button click handler */
-  onCtaClick?: () => void;
-  
-  /** Whether this is the popular/recommended plan */
-  isPopular?: boolean;
-  
-  /** Whether this plan is currently selected */
-  isSelected?: boolean;
-  
-  /** Optional badge text */
-  badge?: string;
-}
+export function PricingSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
-export interface PricingSectionProps {
-  /** Section badge/label */
-  badge?: string;
-  
-  /** Section title (required) */
-  title: string;
-  
-  /** Section subtitle */
-  subtitle?: string;
-  
-  /** Section description */
-  description?: string;
-  
-  /** Array of pricing plans (required) */
-  plans: PricingPlan[];
-  
-  /** Whether to show billing toggle (monthly/yearly) */
-  billingToggle?: boolean;
-  
-  /** Default billing period */
-  defaultBilling?: 'monthly' | 'yearly';
-  
-  /** Yearly discount percentage (for display) */
-  yearlyDiscount?: number;
-  
-  /** Number of columns for grid layout */
-  columns?: {
-    base?: 1 | 2 | 3 | 4;
-    md?: 1 | 2 | 3 | 4;
-    lg?: 1 | 2 | 3 | 4;
-  };
-  
-  /** Background style */
-  background?: 'white' | 'gray' | 'gradient';
-  
-  /** Text alignment */
-  textAlign?: 'left' | 'center';
-  
-  /** Custom content before pricing cards */
-  headerContent?: React.ReactNode;
-  
-  /** Custom content after pricing cards */
-  footerContent?: React.ReactNode;
-  
-  /** Additional CSS classes */
-  className?: string;
-}
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
 
-export function PricingSection({
-  badge,
-  title,
-  subtitle,
-  description,
-  plans,
-  billingToggle = false,
-  defaultBilling = 'monthly',
-  yearlyDiscount,
-  columns = { base: 1, md: 2, lg: 3 },
-  background = 'gray',
-  textAlign = 'center',
-  headerContent,
-  footerContent,
-  className = '',
-}: PricingSectionProps) {
-  const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>(defaultBilling);
-
-  const backgroundClasses = {
-    white: 'bg-white',
-    gray: 'bg-gray-50',
-    gradient: 'bg-gradient-to-b from-white to-gray-50',
-  };
-
-  // Get price based on billing period
-  const getPrice = (plan: PricingPlan) => {
-    if (typeof plan.price === 'object' && 'monthly' in plan.price) {
-      return billingPeriod === 'monthly' ? plan.price.monthly : plan.price.yearly;
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
-    return plan.price;
-  };
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <section className={`${backgroundClasses[background]} py-24 sm:py-32 ${className}`}>
+    <section ref={sectionRef} className="py-16 bg-gradient-to-b from-gray-50 to-white">
       <Container>
         {/* Section Header */}
-        <SectionTitle
-          badge={badge}
-          title={title}
-          subtitle={subtitle}
-          description={description}
-          align={textAlign}
-        />
-
-        {/* Custom Header Content */}
-        {headerContent && (
-          <div className="mt-8">
-            {headerContent}
-          </div>
-        )}
-
-        {/* Billing Toggle */}
-        {billingToggle && (
-          <div className="mt-12 flex items-center justify-center gap-4">
-            <span
-              className={`text-sm font-medium transition-colors ${
-                billingPeriod === 'monthly' ? 'text-gray-900' : 'text-gray-500'
-              }`}
-            >
-              Monthly
-            </span>
-            <button
-              onClick={() => setBillingPeriod(billingPeriod === 'monthly' ? 'yearly' : 'monthly')}
-              className={`
-                relative inline-flex h-8 w-14 items-center rounded-full transition-colors
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2
-                ${billingPeriod === 'yearly' ? 'bg-blue-600' : 'bg-gray-300'}
-              `.trim()}
-              role="switch"
-              aria-checked={billingPeriod === 'yearly'}
-              aria-label="Toggle billing period"
-            >
-              <span
-                className={`
-                  inline-block h-6 w-6 transform rounded-full bg-white transition-transform
-                  ${billingPeriod === 'yearly' ? 'translate-x-7' : 'translate-x-1'}
-                `.trim()}
-              />
-            </button>
-            <span
-              className={`text-sm font-medium transition-colors ${
-                billingPeriod === 'yearly' ? 'text-gray-900' : 'text-gray-500'
-              }`}
-            >
-              Yearly
-            </span>
-            {yearlyDiscount && billingPeriod === 'yearly' && (
-              <span className="ml-2 inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
-                Save {yearlyDiscount}%
-              </span>
-            )}
-          </div>
-        )}
-
-        {/* Pricing Cards */}
-        <div className="mt-16 sm:mt-20">
-          <GridLayout cols={columns} gap="lg">
-            {plans.map((plan, index) => (
-              <PricingCard
-                key={index}
-                planName={plan.name}
-                price={getPrice(plan)}
-                period={billingToggle ? billingPeriod : undefined}
-                description={plan.description}
-                features={plan.features}
-                ctaText={plan.ctaText}
-                onCtaClick={plan.onCtaClick}
-                isPopular={plan.isPopular}
-                isSelected={plan.isSelected}
-                currency={plan.currency}
-              />
-            ))}
-          </GridLayout>
+        <div
+          className="text-center mb-12 transition-all duration-1000"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(-20px)',
+          }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+            Simple, Transparent <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600">Pricing</span>
+          </h2>
+          <p className="text-gray-600 text-base max-w-2xl mx-auto">
+            100% free for university students.
+          </p>
         </div>
 
-        {/* Custom Footer Content */}
-        {footerContent && (
-          <div className="mt-16 text-center">
-            {footerContent}
-          </div>
-        )}
+        {/* Pricing Cards - Centered */}
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl w-full">
+            {pricingPlans.map((plan) => {
+              const isHovered = hoveredId === plan.id;
+              
+              return (
+                <div
+                  key={plan.id}
+                  className={`relative flex flex-col p-8 bg-white rounded-3xl border-2 transition-all duration-500 cursor-pointer ${
+                    plan.popular 
+                      ? 'border-purple-300 shadow-xl hover:shadow-2xl' 
+                      : 'border-gray-200 hover:border-purple-200 hover:shadow-xl'
+                  } ${isHovered ? '-translate-y-2' : 'translate-y-0'}`}
+                  onMouseEnter={() => setHoveredId(plan.id)}
+                  onMouseLeave={() => setHoveredId(null)}
+                  style={{
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible ? 'translateX(0)' : 'translateX(-30px)',
+                    transition: 'all 0.9s ease-out',
+                    transitionDelay: `${plan.delay}ms`,
+                  }}
+                >
+                  {/* Popular Badge */}
+                  {plan.popular && (
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                      <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-bold rounded-full shadow-lg">
+                        Most Popular
+                      </span>
+                    </div>
+                  )}
 
-        {/* FAQ Link */}
-        <div className="mt-12 text-center">
-          <p className="text-gray-600">
-            Have questions?{' '}
-            <a href="/faq" className="font-semibold text-blue-600 hover:text-blue-700">
-              Check our FAQ
-            </a>
-            {' '}or{' '}
-            <a href="/contact" className="font-semibold text-blue-600 hover:text-blue-700">
-              contact us
-            </a>
-          </p>
+                  {/* Plan Name */}
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    {plan.name}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm text-gray-600 mb-6">
+                    {plan.description}
+                  </p>
+
+                  {/* Price */}
+                  <div className="mb-6">
+                    <span className="text-5xl font-bold text-gray-900">{plan.price}</span>
+                    {plan.period && <span className="text-gray-600 ml-2">{plan.period}</span>}
+                  </div>
+
+                  {/* Features List */}
+                  <ul className="space-y-4 mb-8 flex-grow">
+                    {plan.features.map((feature, index) => (
+                      <li 
+                        key={index} 
+                        className="flex items-start gap-3"
+                        style={{
+                          opacity: isVisible ? 1 : 0,
+                          transform: isVisible ? 'translateX(0)' : 'translateX(-20px)',
+                          transition: 'all 0.8s ease-out',
+                          transitionDelay: `${plan.delay + (index * 80) + 200}ms`,
+                        }}
+                      >
+                        <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center ${
+                          plan.popular ? 'bg-purple-100' : 'bg-teal-100'
+                        }`}>
+                          <Check className={`w-3.5 h-3.5 ${
+                            plan.popular ? 'text-purple-600' : 'text-teal-600'
+                          }`} strokeWidth={3} />
+                        </div>
+                        <span className="text-sm text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA Button */}
+                  <Button
+                    variant={plan.buttonVariant}
+                    className={`w-full font-semibold rounded-full py-6 transition-all duration-300 ${
+                      plan.popular
+                        ? 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl'
+                        : 'border-2 border-gray-300 text-gray-900 hover:bg-gray-50 hover:border-gray-400'
+                    } ${isHovered ? 'scale-105' : 'scale-100'}`}
+                  >
+                    {plan.buttonText}
+                  </Button>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </Container>
     </section>
